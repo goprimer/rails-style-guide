@@ -1,6 +1,6 @@
 # Which Guide Should I Use?
 
-If you are looking for a guide on how to format your code or general style for ruby code, **you should be using the [rails-style-guide](https://github.com/goprimer/ruby-style-guide)**.
+If you are looking for a guide on how to format your code or general style for ruby code, **you should be using the [ruby-style-guide](https://github.com/goprimer/ruby-style-guide)**.
 
 If you are looking for a guide on which methods you should be using, deciding how to organize your code/files, or any other rails specific items, **you shold be using this guide**.
 
@@ -1200,7 +1200,7 @@ advance for your help!
 
 ## How to Contribute?
 
-It's easy, just open a pull request with your recommended changes and tag the team. If more 
+It's easy, just open a pull request with your recommended changes and tag the team. If more
 discussion is needed we can talk about it during our next engineering lunch.
 
 # License
