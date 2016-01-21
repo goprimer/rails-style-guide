@@ -1,12 +1,20 @@
+# Which Guide Should I Use?
+
+If you are looking for a guide on how to format your code or general style for ruby code, **you should be using the [ruby-style-guide](https://github.com/goprimer/ruby-style-guide)**.
+
+If you are looking for a guide on which methods you should be using, deciding how to organize your code/files, or any other rails specific items, **you shold be using this guide**.
+
 # Prelude
 
 > Role models are important. <br/>
 > -- Officer Alex J. Murphy / RoboCop
 
+This guide was originally based off of [bbatsov's rails-style-guide](https://github.com/bbatsov/rails-style-guide)
+
 The goal of this guide is to present a set of best practices and style
 prescriptions for Ruby on Rails 4 development. It's a
-complementary guide to the already existing community-driven
-[Ruby coding style guide](https://github.com/bbatsov/ruby-style-guide).
+complementary guide to the already existing ruby-style-guide.
+[Ruby coding style guide](https://github.com/goprimer/ruby-style-guide).
 
 Some of the advice here is applicable only to Rails 4.0+.
 
@@ -515,41 +523,6 @@ render plain: 'Ruby!'
   method. It doesn't run the model validations (unlike `update_attributes`) and
   could easily corrupt the model state.
 <sup>[[link](#beware-update-attribute)]</sup>
-
-* <a name="user-friendly-urls"></a>
-  Use user-friendly URLs. Show some descriptive attribute of the model in the URL
-  rather than its `id`.  There is more than one way to achieve this:
-<sup>[[link](#user-friendly-urls)]</sup>
-
-  * Override the `to_param` method of the model. This method is used by Rails
-    for constructing a URL to the object.  The default implementation returns
-    the `id` of the record as a String.  It could be overridden to include another
-    human-readable attribute.
-
-      ```Ruby
-      class Person
-        def to_param
-          "#{id} #{name}".parameterize
-        end
-      end
-      ```
-
-  In order to convert this to a URL-friendly value, `parameterize` should be
-  called on the string. The `id` of the object needs to be at the beginning so
-  that it can be found by the `find` method of ActiveRecord.
-
-  * Use the `friendly_id` gem. It allows creation of human-readable URLs by
-    using some descriptive attribute of the model instead of its `id`.
-
-      ```Ruby
-      class Person
-        extend FriendlyId
-        friendly_id :name, use: :slugged
-      end
-      ```
-
-  Check the [gem documentation](https://github.com/norman/friendly_id) for more
-  information about its usage.
 
 * <a name="find-each"></a>
   Use `find_each` to iterate over a collection of AR objects. Looping through a
@@ -1199,10 +1172,10 @@ pets.include? 'cat'
 
 ## Managing processes
 
-* <a name="foreman"></a>
-  If your projects depends on various external processes use
-  [foreman](https://github.com/ddollar/foreman) to manage them.
-<sup>[[link](#foreman)]</sup>
+* <a name="eye"></a>
+  We use
+  [eye](https://github.com/kostya/eye) to manage our background processes.
+<sup>[[link](#eye)]</sup>
 
 # Further Reading
 
@@ -1225,14 +1198,10 @@ create a resource that will be beneficial to the entire Ruby community.
 Feel free to open tickets or send pull requests with improvements. Thanks in
 advance for your help!
 
-You can also support the project (and RuboCop) with financial contributions via
-[gittip](https://www.gittip.com/bbatsov).
-
-[![Support via Gittip](https://rawgithub.com/twolfson/gittip-badge/0.2.0/dist/gittip.png)](https://www.gittip.com/bbatsov)
-
 ## How to Contribute?
 
-It's easy, just follow the [contribution guidelines](https://github.com/bbatsov/rails-style-guide/blob/master/CONTRIBUTING.md).
+It's easy, just open a pull request with your recommended changes and tag the team. If more
+discussion is needed we can talk about it during our next engineering lunch.
 
 # License
 
